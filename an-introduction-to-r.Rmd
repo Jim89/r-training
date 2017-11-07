@@ -2,8 +2,7 @@
 title: "An Introduction to R"
 author: "Jim Leach"
 date: "`r Sys.Date()`"
-output: ioslides_presentation
-runtime: shiny
+output: revealjs::revealjs_presentation 
 ---
 
 ## Who am I?
