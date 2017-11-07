@@ -11,8 +11,8 @@ vignette: >
 
 ## Sections
 
-1. [Introduction]()
-2. [Plotting with ggplot2]()
+1. [Introduction](./00-an-introduction-to-r.html)
+2. [Plotting with ggplot2](./01-plotting-with-ggplot2.html)
 3. [Manipulating data with R]()
 4. [Getting data in and out of R]()
 5. [Creating reports with R]()
