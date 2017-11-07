@@ -1,0 +1,18 @@
+---
+title: "An Introduction to R"
+author: "Jim Leach"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Sections
+
+1. [Introduction]()
+2. [Plotting with ggplot2]()
+3. [Manipulating data with R]()
+4. [Getting data in and out of R]()
+5. [Creating reports with R]()
