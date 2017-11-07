@@ -19,7 +19,7 @@ Available
 
 ## Agenda
 
-* Introduction to R
+* [Introduction](https://hdp-service.uk.kworld.kpmg.com/shiny/r-training/an-introduction-to-R.html) to R
 * Plotting with `ggplot2`
 * Manipulating data with R
 * Getting data in to R
@@ -60,15 +60,22 @@ knitr::include_graphics("./www/rstudio.png")
 
 ## The `tidyverse`
 
-A [collection](https://www.tidyverse.org/) of R _packages_ for working with data in a common way.
+* A [collection](https://www.tidyverse.org/) of R _packages_ with a common API.
 
-### Package installation
+* __Package__: Extra functionality that can be added to R, developed by R users.
 
-Extra functionality that can be added to R
+* Installed and then loaded with:
+
+```{r eval = F}
+install.package("[some_package]")
+library(some_package)
+```
+
+I.e. for the tidyverse:
 
 ```{r eval = F}
 install.packages("tidyverse") # Install the package
-library(tidyverse) # Load the tidyverse
+library(tidyverse) # Load the package
 ```
 
 ## The `tidyverse`
