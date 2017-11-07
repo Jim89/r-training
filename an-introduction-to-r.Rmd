@@ -1,8 +1,9 @@
 ---
-title: "An Introduction To R"
+title: "An Introduction to R"
 author: "Jim Leach"
 date: "`r Sys.Date()`"
-output: revealjs::revealjs_presentation
+output: ioslides_presentation
+runtime: shiny
 ---
 
 ## Who am I?
