@@ -9,6 +9,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+This page contains links to some introductory presentations on R. The
+presentations were created with the
+[revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+format for R Markdown. The associated Stash repository with the source files is
+hosted
+[here](https://hdp-service.uk.kworld.kpmg.com/stash/projects/JL/repos/r-training/browse).
+
 ## Sections
 
 1. [Introduction](./00-an-introduction-to-r.html)
