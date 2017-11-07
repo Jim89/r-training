@@ -60,7 +60,7 @@ knitr::include_graphics("./www/rstudio.png")
 
 ## The `tidyverse`
 
-* A [collection](https://www.tidyverse.org/) of R _packages_ with a common API.
+* A [collection](https://www.tidyverse.org/) of R _packages_ with a common approach.
 
 * __Package__: Extra functionality that can be added to R, developed by R users.
 
@@ -80,10 +80,9 @@ library(tidyverse) # Load the package
 
 ## The `tidyverse`
 
-* `ggplot2` - making graphs
-* `dplyr` - manipulating data
-* `readr`/`readxl` - getting data in to R
-* Others
+```{r}
+library(tidyverse)
+```
 
 ## Getting help
 
