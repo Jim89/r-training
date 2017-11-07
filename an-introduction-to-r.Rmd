@@ -1,0 +1,31 @@
+---
+title: "An Introduction To R"
+author: "Jim Leach"
+date: "`r Sys.Date()`"
+output: revealjs::revealjs_presentation
+---
+
+## Who am I?
+
+* Started with KPMG in 2012
+* Analyst in Data Insight Services
+* Data scientist in TechSolutions/Lighthouse
+* 5 years using and teaching R
+
+## Materials
+
+Available
+[online](https://hdp-service.uk.kworld.kpmg.com/stash/projects/JL/repos/r-training/browse).
+
+## Agenda
+
+* Introduction to R and the `tidyverse` 
+* Plotting with `ggplot2`
+* Manipulating data with R
+* Getting data in to R
+* Creating reports with R
+
+## 
+
+
+
