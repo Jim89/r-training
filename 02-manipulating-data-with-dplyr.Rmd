@@ -1,0 +1,164 @@
+---
+title: "Working data with data"
+author: "Jim Leach"
+date: "`r Sys.Date()`"
+output: 
+  revealjs::revealjs_presentation:
+    reveal_plugins: ["notes"]
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+## In this section
+
+* Data manipulation with `dplyr`
+* Getting data in to R - `readr` and `readxl`
+
+# Data manipulation
+
+## `dplyr`
+
+[R for Data Science Chapter](http://r4ds.had.co.nz/transform.html)
+
+A grammar of data manipultion.
+
+```{r example_dplyr, eval = FALSE}
+function_name(data, arguments)
+```
+
+A consistent approach to most data manipulation challenges:
+
+* `select()`
+* `filter()`
+* `mutate()`
+* `summarise()`
+* `arrange()`
+* `group_by()`
+
+<aside class="notes">
+* Explain each function:
+    * mutate() adds new variables that are functions of existing variables
+    * select() picks variables based on their names.
+    * filter() picks cases based on their values.
+    * summarise() reduces multiple values down to a single summary.
+    * arrange() changes the ordering of the rows.
+* Note similarity to SQL
+* (Note about SQL translation?)
+</aside>
+
+## data - `storms`
+
+```{r show_packages, eval = TRUE}
+library(dplyr)
+storms
+```
+
+<aside class="notes">
+* Built in data set that comes with `ggplot2`
+* Contains the prices and other attributes of almost 54,000 diamonds. 
+* Diamond characteristics and prices
+* Type `?diamonds` at the console to get more details
+</aside>
+
+## `select()`
+
+Picks columns based on their name.
+
+```{r select_eg}
+select(storms, name, year, month, day, status)
+```
+
+* Lots of helper functions, e.g. `starts_with()`, `ends_with()`, see `?select_helpers`
+
+<aside class="notes">
+* To drop columns use `-`
+* Can use numeric positions of the columns - start from 1 on the left
+* Helper functions (?select_helpers) can be used _inside_ `select()`
+* Will _only_ select the fields we specify (`rename()` keeps all)
+</aside>
+
+## `filter()`
+
+Selects rows based on (a) condition(s).
+
+```{r filter_eg}
+filter(storms, status == "hurricane")
+```
+
+* Criteria: `==` , `>`, `>=`, `!=` (not equal to), `between()`
+* Get help with `?filter`
+
+<aside class="notes">
+* Multiple _and_ criteria can be separated with `&` or `,`
+* Multiple _or_ (careful!) separated with `|`
+* Use `!` for not
+</aside>
+
+## `mutate()`
+
+Adds new columns that are functions of existing columns:
+
+```{r mutate_eg, eval = FALSE} 
+mutate(storms, wind_times_pressure = wind * pressure)
+```
+
+```{r mutate_eg_show, echo = FALSE} 
+mutate(storms, wind_times_pressure = wind * pressure) %>% 
+  select(name, year, month, day, wind, pressure, wind_times_pressure)
+```
+
+* Lots of useful functions can be used: `+`, `-`, `case_when()`, `lead()`/`lag()`, `coalesce()`, `if_else()`
+* See help with: `?mutate`
+
+<aside class="notes">
+* The other columns are hidden in the output above
+* Add multiple columns using `,`, even using columns you have just created!
+* `mutate()` will _keep_ all the other variables, too
+* `transmute()` will _drop_ the other variables
+* Most operations can be achieved with a `mutate()`
+</aside>
+
+## `summarise()`/`summarize()`
+
+Reduces multiple values to a single summary
+
+```{r summarise_eg}
+summarise(storms, avg_pressure = mean(pressure))
+# Or summarize(storms, avg_pressure = mean(pressure))
+```
+
+* Use _any_ summary function: `mean()`, `min()`, `max()`, `n()` (count)
+* Get help with: `?summarise`
+
+<aside class="notes">
+* Compute multiple summaries with `,`
+* Whole table summaries not that useful - we probably want summaries in _groups_
+</aside>
+
+## An aside - `%>%`
+
+[R for Data Science Chapter](http://r4ds.had.co.nz/pipes.html)
+
+* Read as "pipe" or "then"
+
+
+
+## `group_by()`
+
+
+## `arrange()`
+
+Changes the ordering of rows.
+
+```{r}
+arrange(storms, name)
+```
+
+* Reverse order with `desc()`
+* Use the `.by_group` argument to arrange _within_ a group
