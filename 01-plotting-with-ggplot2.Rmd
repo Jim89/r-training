@@ -4,7 +4,8 @@ author: "Jim Leach"
 date: "`r Sys.Date()`"
 output: 
   revealjs::revealjs_presentation:
-    self_contained: true
+    reveal_plugins: ["notes"]
+    self_contained: false
 ---
 
 ```{r setup, include=FALSE}
