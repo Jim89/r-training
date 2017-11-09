@@ -2,7 +2,10 @@
 title: "An Introduction to R"
 author: "Jim Leach"
 date: "`r Sys.Date()`"
-output: revealjs::revealjs_presentation 
+output: 
+  revealjs::revealjs_presentation:
+    reveal_plugins: ["notes"]
+    self_contained: false
 ---
 
 ## Who am I?
@@ -85,12 +88,51 @@ library(tidyverse)
 tidyverse_logo()
 ```
 
+## Assignment in R
+
+Assignment: saving output to a value
+
+```{r eval = FALSE}
+x <- 4
+my_data <- a_function(some_data)
+```
+
+If you don't assign, R just prints the output.
+
+<aside class="notes">
+* Can also use `=`, but `<-` is preferred style (and `=` used inside function calls)
+* Assign the name x the value 4
+* Can save anything to a variable, indidivual values, lists, data.frames (tables), statistical models
+</aside>
+
+## Using saved objects
+
+We can look at an object by printing it:
+
+```{r}
+my_value <- 5
+my_value
+```
+
+And use functions to inspect it:
+
+```{r}
+str(mtcars) # str displays the structure of an R object!
+```
+
+<aside class="notes">
+* The RStudio Environment is also very helpful to see the objects we have saved
+* Remove objects with `rm()` (or just overwrite them)
+</aside>
+
 ## Getting help
 
 * Rstudio [community](https://community.rstudio.com/)
 * `#rstats` on [twitter](https://twitter.com/search?q=%23rstats)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
 * [Jim](mailto:jim.leach@kpmg.co.uk)
+
+
 
 
 

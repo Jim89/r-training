@@ -141,16 +141,50 @@ summarise(storms, avg_pressure = mean(pressure))
 * Whole table summaries not that useful - we probably want summaries in _groups_
 </aside>
 
-## An aside - `%>%`
+## Piping
+
+> ` %>% `
 
 [R for Data Science Chapter](http://r4ds.had.co.nz/pipes.html)
 
-* Read as "pipe" or "then"
+* `x %>% f` is equivalent to `f(x)`
+* `x %>% f(y)` is equivalent to `f(x, y)`
+* `x %>% f %>% g %>% h` is equivalent to `h(g(f(x)))`
 
-
+<aside class="notes">
+* Comes with the `tidyverse` (from `magrittr`)
+* Makes it easy to compose a sequence of operations
+* The outcome of the left hand side is fed to the first argument of the function on the right
+* Works with `dplyr` because the first argument is always data (and most/all packages in the tidyverse)
+* Hence why it's easy to learn
+</aside>
 
 ## `group_by()`
 
+Group data by one or more columns
+
+```{r}
+storms %>% 
+  group_by(status, year) %>% 
+  summarise(max_wind = max(wind))
+```
+
+<aside class="notes">
+* Specify multiple groups using `,`
+* Use `ungroup()` to remove groups
+</aside>
+
+## Without `%>%`
+
+```{r}
+summarise(group_by(storms, status, year), max_wind = max(wind))
+```
+
+<aside class="notes">
+* Harder to read, especially with longer pipelines
+* Functions don't read in a logical order
+* Arguments are separated from functions
+</aside>
 
 ## `arrange()`
 
