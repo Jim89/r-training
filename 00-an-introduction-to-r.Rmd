@@ -82,6 +82,7 @@ library(tidyverse) # Load the package
 
 ```{r}
 library(tidyverse)
+tidyverse_logo()
 ```
 
 ## Getting help
