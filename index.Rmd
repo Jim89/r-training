@@ -21,4 +21,4 @@ hosted
 1. [Introduction](./00-an-introduction-to-r.html)
 2. [Plotting with ggplot2](./01-plotting-with-ggplot2.html)
 3. [Manipulating data with R](./02-working-with-data.html)
-5. [Creating reports with R]()
+5. [Creating reports with R](./03-reports-with-r.html)

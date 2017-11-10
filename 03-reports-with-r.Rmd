@@ -1,0 +1,10 @@
+---
+title: "Creating reports with R"
+author: "Jim Leach"
+date: "`r Sys.Date()`"
+output: 
+  revealjs::revealjs_presentation:
+    reveal_plugins: ["notes"]
+    self_contained: false
+---
+
