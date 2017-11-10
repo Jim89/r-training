@@ -337,12 +337,12 @@ write_xlsx(my_data, "./path/to/file.xlsx")
 ## Data manipulation
 
 * Using `starwars` data and `dplyr`, can you do/answer the following:
-  * Can you select all the columns which contain "color" (without listing them)
-  * Which character is the heaviest?
-  * How many Droids are there?
-  * Which planet has the most characters from it?
-  * How many of each species is there, and what is the average height of each?
-  * Can you calculate BMI ($BMI = \frac{mass}{(height / 100)^2}$), what is Darth Vader's?
+    * Can you select all the columns which contain "color" (without listing them)
+    * Which character is the heaviest?
+    * How many Droids are there?
+    * Which planet has the most characters from it?
+    * How many of each species is there, and what is the average height of each?
+    * Can you calculate BMI ($BMI = \frac{mass}{(height / 100)^2}$), what is Darth Vader's?
 
 <aside class = "notes">
 * We'll take some time to do this - 15 or 20 mins

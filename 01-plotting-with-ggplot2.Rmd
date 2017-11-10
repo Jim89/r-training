@@ -130,7 +130,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 <aside class="notes">
 * Specify data & mappings: x (carat), y (price), colour (clarity)
 * Add elements to control: geoms (point and smooths) , facet (by clarity), scales (colour and y), visuals (labels, themes)
-* _Set_ some parameters: alpha of the points to avoid overplotting and see the smooth fit better
+* _Set_ some parameters: alpha of the points to avoid over-plotting and see the smooth fit better
 </aside>
 
 ## Starting out - ggplot()
@@ -161,6 +161,7 @@ ggplot(diamonds, aes(x = carat, y = price, colour = clarity))
 ```
 
 <div class="notes">
+* Make the plot yourself!
 * What this makes
 * Sensible defaults for gridlines, labels etc
 </div>
@@ -173,6 +174,9 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 ```
 
 <div class="notes">
+* Make the plot yourself!
+* Drop `x` and `y`, they are always the first two arguments of `aes` so we can save some typing
+    * Everything else needs to be named
 * We add _layers_ to the plot using `+`; Layer = `geom_*`
 * Have already specified data + mapping, geom is how to _display_ the data
 * We can also _set_ attributes (e.g. alpha), rather than mapping them to data
@@ -188,6 +192,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 ```
 
 <div class="notes">
+* Make the plot yourself!
 * We can add a different layer to see a different plot
 * Have already specified: data, mapping, (coordinate system)
 * Here we just add a different geom - a smoother
@@ -204,6 +209,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 ```
 
 <div class="notes">
+* Make the plot yourself!
 * Same chart, but multiple views of the same data in one place with multiple geoms
 * Now diamond price vs. carat, colour by clarity, with points _and_ smoother
 * Remember the grammar: data, geom, mappings
@@ -220,9 +226,10 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 ```
 
 <div class="notes">
-* Let's specify _how_ to map from clarity to colour, e.g. what colours to use:
-* We can use some specific colours, e.g. to brand the plot with KPMG colours
-* Bit of a hack for now - will come up with better way to get colours in future
+* Make the plot yourself!
+* Let's specify _how_ to display the y values, use the `comma` function from the `scales` package 
+    * Specify that `y::x` is use `x` from `y`
+    * Try without `scales::` - may get an error (R doesn't know where to look)
 * Let's finish up with some tidy axis labels, and change the theme of the plot
 </div>
 
@@ -248,8 +255,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 <div class="notes">
 * Full `ggplot()` syntax seems verbose at first glance, but follows structure of grammar and can be built step-by-step
 * Specify data & mappings
-* Add layers to control: geoms, facet specs, scales, visuals (labels, themes)
-* Come to training to learn more
+* Make the plot yourself!
 </div>
 
 ## Finished plot
@@ -265,6 +271,42 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
        subtitle = "For diamonds of different clarities",
        caption = "Source: ggplot2 diamonds data") +
   theme_light()
+```
+
+## Finished plot with KPMG themes
+
+```{r ggplot_kpmg, eval = F, echo = T, fig.height=5, fig.width=10, message = FALSE}
+library(ggkpmg)
+
+ggplot(diamonds, aes(carat, price, colour = clarity)) +
+  geom_point(alpha = .015) + 
+  geom_smooth(se = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_colour_manual(values = unname(kpmgcolours("graphs"))) +
+  labs(x = "Carat",
+       y = "Price ($)",
+       title = "The relationship between price and carat",
+       subtitle = "For diamonds of different clarities",
+       caption = "Source: ggplot2 diamonds data") +
+  theme_kpmg()
+```
+
+## Finished plot with KPMG themes
+
+```{r ggplot_show_kpmg, eval = T, echo = F, fig.height=5, fig.width=10, message = FALSE}
+library(ggkpmg)
+
+ggplot(diamonds, aes(carat, price, colour = clarity)) +
+  geom_point(alpha = .015) + 
+  geom_smooth(se = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_colour_manual(values = unname(kpmgcolours("graphs"))) +
+  labs(x = "Carat",
+       y = "Price ($)",
+       title = "The relationship between price and carat",
+       subtitle = "For diamonds of different clarities",
+       caption = "Source: ggplot2 diamonds data") +
+  theme_kpmg()
 ```
 
 ## Some examples
@@ -305,6 +347,3 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 * Data Visualisation with ggplot2 (Datacamp online course). [Link](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1)
 * R Graphics Cookbook (Chang, 2013). [Link](https://www.amazon.com/dp/1449316956/ref=as_li_ss_tl?&linkCode=sl1&tag=ggplot2-20&linkId=4daa45d4fbd0a187163a6ff9d56d986e)
 * ggplot2: Elegant graphics for data analysis 2nd ed. (Wickham, 2016). [Link](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=ggplot2-20&linkId=4b4de5146fdafd09b8035e8aa656f300)
-
-
-

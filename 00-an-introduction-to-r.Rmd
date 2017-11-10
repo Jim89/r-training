@@ -13,7 +13,7 @@ output:
 * Started at KPMG in 2012
 * Early career as a data analyst
 * Self study, then MSc Data Science
-* Transferrred to data scientist post-MSc
+* Transferred to data scientist post-MSc
 * 5 years using and teaching R
 
 ## Materials
@@ -88,7 +88,7 @@ knitr::include_graphics("./www/rstudio.png")
 * Installed and then loaded with:
 
 ```{r eval = F}
-install.package("[some_package]")
+install.packages("[some_package]")
 library(some_package)
 ```
 
@@ -117,9 +117,10 @@ tidyverse_logo()
 <br>
 
 * Get help using `?function_name` in the console, e.g. `?library`, `?mean`
+* Or in RStudio highlight function and press F1
 
 <aside class="notes">
-* Aguments are _named_, or R just assumes by position
+* Arguments are _named_, or R just assumes by position
 * We can define our own functions (not in today's session, but good to know)
 </aside>
 
@@ -143,7 +144,7 @@ the_average
 <aside class="notes">
 * Can also use `=`, but `<-` is preferred style (and `=` used inside function calls)
 * Assign the name x the value 4
-* Can save anything to a variable, indidivual values, lists, data.frames (tables), statistical models
+* Can save anything to a variable, individual values, lists, data.frames (tables), statistical models
 </aside>
 
 ## Viewing saved objects
@@ -163,6 +164,7 @@ str(mtcars) # str displays the structure of an R object!
 
 ## Getting help
 
+* `?function` - R documentation
 * [`tidyverse`](tidyverse.org) website
 * [R for Data Science](http://r4ds.had.co.nz/)
 * Rstudio [community](https://community.rstudio.com/)
