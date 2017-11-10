@@ -8,3 +8,72 @@ output:
     self_contained: false
 ---
 
+## In this section
+
+* Rstudio notebooks
+* Rmarkdown
+
+# Rstudio notebooks
+
+## Notebooks
+
+[Official documentation](http://rmarkdown.rstudio.com/r_notebooks.html)
+
+Let us couple code with explanation and have outputs inline.
+
+Create a new notebook in RStudio with the menu command File -> New File -> R Notebook
+
+## YAML header
+
+The first few lines of your new notebook look like this:
+
+    ---
+    title: "R Notebook"
+    output: html_notebook
+    ---
+
+You can change the `title` to one for your notebook. 
+
+The `output` option tells Rstudio to treat this as a notebook.
+
+## Explanatory text
+
+Add comments and explanatory notes using plain text. 
+
+These should be used to describe the _why_ of your code - the reasons for your analysis.
+
+## Code chunks
+
+You can insert sections of code using a code chunk.
+
+There are three ways to do that:
+
+1. The keyboard shortcut Cmd/Ctrl + Alt + I
+1. The "Insert" button icon in the editor toolbar.
+1. By manually typing the chunk delimiters ` ```{r} ` and ` ``` `.
+
+## Code chunks
+
+Once you have entered code in to a chunk, you can run it:
+
+1. Use Ctrl/Cmd + Shift * Enter to run the chunk your cursor is in.
+1. Use the `Run` button in the Rstudio interface (small green play button)
+1. Use the Run All and Run Previous commands to run a batch of chunks.
+
+The output should appear beneath the code chunk
+    
+<aside class="notes">
+* Use Ctrl/Cmd + Enter to run just the current statement/line.
+* Running a single statement is much like running an entire chunk consisting only of that statement.
+* Run All will run _all_ chunks in the document
+* Run previous will run the chunks _before_ the currently selected chunk
+* You can change so output appears in the console/viewer if you prefer
+</aside>
+
+## Preview the output
+
+When you're happy with the code in the document, use the Preview button (or Cntrl/Cmd + Shift + K) to convert to the notebook output.
+
+(You'll need to save the file somewhere first).
+
+This will take the current outputs in the notebook, along with the explanatory notes you've added, and convert them to a HTML output.
