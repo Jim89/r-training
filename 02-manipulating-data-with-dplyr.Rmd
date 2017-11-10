@@ -1,5 +1,5 @@
 ---
-title: "Working data with data"
+title: "Working with data"
 author: "Jim Leach"
 date: "`r Sys.Date()`"
 output: 
@@ -12,13 +12,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(dplyr)
-library(tidyr)
 ```
 
 ## In this section
 
 * Data manipulation with `dplyr`
-* Getting data in to R - `readr` and `readxl`
+* Getting data in to and out of R - `readr` and `readxl`
+* Challenges
 
 # Data manipulation
 
@@ -77,6 +77,7 @@ select(storms, name, year, month, day, status)
 * Lots of helper functions, e.g. `starts_with()`, `ends_with()`, see `?select_helpers`
 
 <aside class="notes">
+* Remember `?function`
 * To drop columns use `-`
 * Can use numeric positions of the columns - start from 1 on the left
 * Helper functions (?select_helpers) can be used _inside_ `select()`
@@ -92,7 +93,6 @@ filter(storms, status == "hurricane")
 ```
 
 * Criteria: `==` , `>`, `>=`, `!=` (not equal to), `between()`
-* Get help with `?filter`
 
 <aside class="notes">
 * Multiple _and_ criteria can be separated with `&` or `,`
@@ -105,16 +105,21 @@ filter(storms, status == "hurricane")
 Adds new columns that are functions of existing columns:
 
 ```{r mutate_eg, eval = FALSE} 
-mutate(storms, wind_times_pressure = wind * pressure)
+mutate(storms, 
+       wind_times_pressure = wind * pressure, 
+       wind_over_pressure = wind / pressure)
 ```
 
 ```{r mutate_eg_show, echo = FALSE} 
-mutate(storms, wind_times_pressure = wind * pressure) %>% 
-  select(name, year, month, day, wind, pressure, wind_times_pressure)
+mutate(
+  storms, 
+  wind_times_pressure = wind * pressure,
+  wind_over_pressure = wind / pressure
+  ) %>% 
+  select(name, year, month, day, wind, pressure, wind_times_pressure, wind_over_pressure)
 ```
 
-* Lots of useful functions can be used: `+`, `-`, `case_when()`, `lead()`/`lag()`, `coalesce()`, `if_else()`
-* See help with: `?mutate`
+* Lots of useful functions can be used: `case_when()`, `lead()`/`lag()`, `coalesce()`
 
 <aside class="notes">
 * The other columns are hidden in the output above
@@ -129,15 +134,17 @@ mutate(storms, wind_times_pressure = wind * pressure) %>%
 Reduces multiple values to a single summary
 
 ```{r summarise_eg}
-summarise(storms, avg_pressure = mean(pressure))
-# Or summarize(storms, avg_pressure = mean(pressure))
+summarise( # Or summarize
+  storms, 
+  avg_pressure = mean(pressure),
+  max_pressure = max(pressure)
+  )
 ```
 
 * Use _any_ summary function: `mean()`, `min()`, `max()`, `n()` (count)
-* Get help with: `?summarise`
+* Multiple values separated with `,`
 
 <aside class="notes">
-* Compute multiple summaries with `,`
 * Whole table summaries not that useful - we probably want summaries in _groups_
 </aside>
 
@@ -147,9 +154,10 @@ summarise(storms, avg_pressure = mean(pressure))
 
 [R for Data Science Chapter](http://r4ds.had.co.nz/pipes.html)
 
-* `x %>% f` is equivalent to `f(x)`
-* `x %>% f(y)` is equivalent to `f(x, y)`
-* `x %>% f %>% g %>% h` is equivalent to `h(g(f(x)))`
+* Read as "then"
+* `x %>% f`   is equivalent to `f(x)`
+* `x %>% f(y)`   is equivalent to `f(x, y)`
+* `x %>% f %>% g %>% h`   is equivalent to `h(g(f(x)))`
 
 <aside class="notes">
 * Comes with the `tidyverse` (from `magrittr`)
@@ -161,9 +169,9 @@ summarise(storms, avg_pressure = mean(pressure))
 
 ## `group_by()`
 
-Group data by one or more columns
+Group data by one or more columns. Often used before `summarise()` or `mutate()`
 
-```{r}
+```{r group_by_eg}
 storms %>% 
   group_by(status, year) %>% 
   summarise(max_wind = max(wind))
@@ -176,7 +184,7 @@ storms %>%
 
 ## Without `%>%`
 
-```{r}
+```{r group_by_not_piped_eg}
 summarise(group_by(storms, status, year), max_wind = max(wind))
 ```
 
@@ -190,9 +198,178 @@ summarise(group_by(storms, status, year), max_wind = max(wind))
 
 Changes the ordering of rows.
 
-```{r}
+```{r arrange_eg}
 arrange(storms, name)
 ```
 
-* Reverse order with `desc()`
+* Reverse order with `desc()`, specify multiple values with `,`
 * Use the `.by_group` argument to arrange _within_ a group
+
+# Getting data in/out of R
+
+## `readr`/`readxl`
+
+[R for Data Science chapter](http://r4ds.had.co.nz/data-import.html)
+
+* `readr` - read text files (`.txt, .csv`, etc)
+* `readxl` - read Excel files
+* Both use `read_` family of functions, e.g `read_csv()`, `read_xlsx()`, ...
+
+## Reading from CSV
+
+Use the `read_csv()` function. E.g. on example data:
+
+```{r read_mtcars_eg}
+library(readr)
+my_mtcars <- read_csv(readr_example("mtcars.csv"))
+```
+
+
+<aside class="notes">
+* Does everyone know what a CSV/flat file is?
+* `readr_example()` is a handy function inside `readr` that provides some
+example CSV files to test reading in a CSV
+* Column specification tells us what type of data R guessed each column was - we can specify
+</aside>
+
+## The results
+
+```{r show_mtcars_eg}
+my_mtcars
+```
+
+## Specifying column types
+
+We can specify the column types, see `?cols`
+
+```{r read_mtcars_with_spec_eg}
+my_mtcars2 <- read_csv(
+  readr_example("mtcars.csv"),
+  col_types = cols(
+    mpg = col_double(),
+    cyl = col_integer(),
+    disp = col_double(),
+    hp = col_integer(),
+    drat = col_double(),
+    wt = col_double(),
+    qsec = col_double(),
+    vs = col_integer(),
+    am = col_factor(levels = c(0, 1)),
+    gear = col_integer(),
+    carb = col_integer()
+  )
+)
+```
+
+<aside class="notes">
+* E.g. tell it to read am as a factor (categorical data)
+* Lots of handy functions for dealing with column type specificaion - `?spec`
+</aside>
+
+## The results
+
+```{r show_mtcars_with_spec_eg}
+my_mtcars2
+```
+
+## Reading from Excel
+
+Use `read_excel()`
+
+```{r show_xl_eg}
+library(readxl)
+readxl_example("clippy.xls")
+```
+
+```{r show_read_xl_eg}
+read_excel(readxl_example("clippy.xls"))
+```
+
+<aside class="notes">
+* Again, we can use a handy example that comes with the package - here we see how that example works
+* There is `read_xls()` and `read_xlsx()` if you need to read files without an extension
+* We can specify the sheet to read from with `sheet`, and a cell range with `range` arguments
+</aside>
+
+## Writing to text file
+
+Use the helpful `write_` functions in `readr`
+
+```{r out_text, eval = FALSE}
+write_csv(my_data, "./path/to/file.csv")
+write_tsv(my_data, "./path/to/file.tsv")
+write_delim(my_data, "./path/to/file.txt", delim = "\")
+```
+
+<aside class="notes">
+* Sensible to write to text files
+    * Pretty portable
+    * Easy to read
+    * Well-known
+    * Non-proprietary
+    * Lightweight
+</aside>
+
+## Writing to Excel
+
+Don't. 
+
+Ok, go on then:
+
+```{r out_excel, eval = FALSE}
+library(writexl)
+write_xlsx(my_data, "./path/to/file.xlsx")
+```
+
+(You will need to install `writexl` separately using `install.packages("writexl")`).
+
+<aside class="notes">
+* Not sensible to write to Excel
+    * Excel will mess with your data (e.g. dates)
+    * Much harder to control what happens to data in them (because it's so interactive)
+    * Not as portable
+    * Only easy to read with (specific version of) Excel
+    * Proprietary
+</aside>
+
+# Challenges
+
+## Data manipulation
+
+* Using `starwars` data and `dplyr`, can you do/answer the following:
+  * Can you select all the columns which contain "color" (without listing them)
+  * Which character is the heaviest?
+  * How many Droids are there?
+  * Which planet has the most characters from it?
+  * How many of each species is there, and what is the average height of each?
+  * Can you calculate BMI ($BMI = \frac{mass}{(height / 100)^2}$), what is Darth Vader's?
+
+<aside class = "notes">
+* We'll take some time to do this - 15 or 20 mins
+* Everything should be do-able with the functions we've covered just now
+* Ask for help if you get stuck, but consult the documentation first - or check the `tidyverse` site...
+</aside>
+
+## Plots
+
+* Using `starwars` and `ggplot2` can you plot:
+    * the relationship between height and mass? What about for each gender?
+    * a histogram or density plot of character heights? Character mass?
+    * a count of each species, or homeworld?
+    * a summary of character height for each eye colour?
+
+<aside class = "notes">
+* We'll take some time to do this - 15 or 20 mins
+* First challenge should be do-able following the example code we used for `diamonds`
+* Everything else will require a bit of thinking/research - check the ggplot2 cheatsheet (Help > Cheatsheets > Data Vis...)
+* Ask me if you're completely stuck, or you need something explained
+</aside>
+
+## Getting help
+
+* [`tidyverse`](tidyverse.org) website
+* [R for Data Science](http://r4ds.had.co.nz/)
+* Rstudio [community](https://community.rstudio.com/)
+* `#rstats` on [twitter](https://twitter.com/search?q=%23rstats)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
+* [Jim](mailto:jim.leach@kpmg.co.uk)
