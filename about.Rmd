@@ -2,6 +2,21 @@
 title: "About"
 ---
 
-# A header
+The presentations on this website were created with the
+[revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+extension for R Markdown. 
 
-Some test text
+The website itself was developed as an R Markdown
+[website](http://rmarkdown.rstudio.com/rmarkdown_websites.html).
+
+### R session info:
+
+```{r}
+Sys.Date()
+```
+
+
+```{r}
+sessionInfo()
+```
+

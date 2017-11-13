@@ -1,13 +1,8 @@
 ---
-title: "Main Page"
+title: "An Introduction to R"
 ---
 
-This page contains links to some introductory presentations on R. The
-presentations were created with the
-[revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
-format for R Markdown. The associated Stash repository with the source files is
-hosted
-[here](https://hdp-service.uk.kworld.kpmg.com/stash/projects/JL/repos/r-training/browse).
+This website contains some introductory presentations on R. 
 
 ## Sections
 
