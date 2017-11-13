@@ -1,6 +1,6 @@
 # check parameters
 if [ -z "$1" ]; then
-  echo "Please specify a user"
+  echo "Please specify a valid IXE username with access to the Shiny server"
   exit 1
 fi
 
