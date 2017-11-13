@@ -1,6 +1,6 @@
 name: "r-training"
 navbar:
-  title: "An introduction to R"
+  title: "An Introduction to R"
   left:
     - text: "Home"
       href: index.html
@@ -8,5 +8,5 @@ navbar:
       href: about.html
 output:
   html_document:
-    theme: readable
+    theme: cosmo
     highlight: textmate
