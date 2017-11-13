@@ -1,10 +1,5 @@
 ---
-title: "An Introduction to R"
-author: "Jim Leach"
-date: "`r Sys.Date()`"
-output: 
-  rmarkdown::html_document:
-      theme: readable
+title: "Main Page"
 ---
 
 This page contains links to some introductory presentations on R. The
@@ -32,4 +27,3 @@ cat(
   paste0("1. [", labels, "](", links, ")\n")
 )
 ```
-
