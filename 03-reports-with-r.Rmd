@@ -19,28 +19,52 @@ output:
 
 [Official documentation](http://rmarkdown.rstudio.com/r_notebooks.html)
 
-Let us couple code with explanation and have outputs inline.
+* Couple code with both explanation and outputs.
+* Saved as `.Rmd` files - R Markdown
+* Create a new notebook in RStudio with the menu command File -> New File -> R Notebook
 
-Create a new notebook in RStudio with the menu command File -> New File -> R Notebook
+<aside class="notes">
+* Notebooks are a nice way to work in Rstudio
+* (Although not the only way, you may prefer a normal script)
+* Provide a way for you to code, add explanation, and get a nice share-able document to give to colleagues/host on a server
+* Plain text - very easy to version control, e.g. with `Git`
+* Open + save a notebook now
+* You may be asked to install some extra packages - just click yes
+* Your console may disappear - don't worry!
+</aside>
 
 ## YAML header
 
 The first few lines of your new notebook look like this:
 
-    ---
-    title: "R Notebook"
-    output: html_notebook
-    ---
+```
+---
+title: "R Notebook"
+output: html_notebook
+---
+```
 
 You can change the `title` to one for your notebook. 
 
 The `output` option tells Rstudio to treat this as a notebook.
+
+<aside class="notes">
+* YAML - yet another markup language
+* A way to set parameters/options on many web platforms/formats
+* Used here to control the notebook
+* Don't worry about it for now
+</aside>
 
 ## Explanatory text
 
 Add comments and explanatory notes using plain text. 
 
 These should be used to describe the _why_ of your code - the reasons for your analysis.
+
+<aside class="notes">
+* Just type - the point is that it is a notebook, so get your thoughts down
+* Note that you can also use syntax to _format_ the text, we'll come to that later
+</aside>
 
 ## Code chunks
 
@@ -52,11 +76,15 @@ There are three ways to do that:
 1. The "Insert" button icon in the editor toolbar.
 1. By manually typing the chunk delimiters ` ```{r} ` and ` ``` `.
 
+<aside class="notes">
+* Can also do inline calculations with single ` and r
+</aside>
+
 ## Code chunks
 
 Once you have entered code in to a chunk, you can run it:
 
-1. Use Ctrl/Cmd + Shift * Enter to run the chunk your cursor is in.
+1. Use Ctrl/Cmd + Shift + Enter to run the chunk your cursor is in.
 1. Use the `Run` button in the Rstudio interface (small green play button)
 1. Use the Run All and Run Previous commands to run a batch of chunks.
 
@@ -68,12 +96,137 @@ The output should appear beneath the code chunk
 * Run All will run _all_ chunks in the document
 * Run previous will run the chunks _before_ the currently selected chunk
 * You can change so output appears in the console/viewer if you prefer
+* Remember, if we don't assign, we get outputs, if we do, we won't
 </aside>
 
 ## Preview the output
 
-When you're happy with the code in the document, use the Preview button (or Cntrl/Cmd + Shift + K) to convert to the notebook output.
+* Use the Preview button (or Cntrl/Cmd + Shift + K) to convert to the notebook output.
 
-(You'll need to save the file somewhere first).
+* (You'll need to save the file somewhere first).
 
-This will take the current outputs in the notebook, along with the explanatory notes you've added, and convert them to a HTML output.
+* This will take the current outputs in the notebook, along with the explanatory notes you've added, and convert them to a HTML output.
+
+## Sharing a notebook
+
+* Send the `.nb.html` file
+* This will contain you code, comments, and ouputs
+* And lets the user get the source file
+
+<aside class="notes">
+* Get a "presentation-ready" document to share very easily
+* Great way to share analysis/reports
+* Not so great for writing end-to-end processes, for that use a Script
+</aside>
+
+## Writing a notebook
+
+* Put some code in to the notebook.
+
+* Show the data, add a question, show the answer, show a plot
+
+<aside class="notes">
+* We'll take another 15 mins for this
+* Experiment with the code chunks and free text
+* Can you get your `starwars` analysis in a notebook (or other code)?
+* Can you preview the results in the HTML output?
+</aside>
+
+# Rmarkdown
+
+## Rmarkdown
+
+[Website](http://rmarkdown.rstudio.com/index.html)
+
+* Extension of notebooks
+* Create documents in R, convert to HTML, Word, PDF, dashboards, presentations, books, and [more](http://rmarkdown.rstudio.com/formats.html)
+* Supports R, Python, SQL, and [other languages](http://rmarkdown.rstudio.com/authoring_knitr_engines.html)
+
+<aside class="notes">
+* Actually, notebooks are a special Rmarkdown document, really
+</aside>
+
+## Getting started
+
+Convert you existing notebook with the YAML header:
+
+```
+---
+title: "Your title"
+output: html_document
+---
+```
+
+Start with the HTML document [format](http://rmarkdown.rstudio.com/html_document_format.html)
+
+<aside class="notes">
+* Try changing your notebook and saving - you should see 'Preview' change to 'Knit'
+* Click it - does it work?
+* Rmarkdown is based on the `knitr` and `rmarkdown` packages
+    * knitr - convert the Rmd file to markdown
+    * rmarkdown - convert the knit-ted file to a specified output (pandoc)
+* You may need to install them (either manually, or create a new Rmd and have RStudio install them for you)
+</aside>
+
+## R + Markdown
+
+* Rmarkdown = R and Markdown
+
+* Markdown = a mark _up_ language (like HTML/LaTeX)
+
+* Markdown = author documents using special characters to format 
+
+## Markdown
+
+<blockquote><p align="left">'If you can write an email, you can write Markdown'</p>
+<footer><cite><a href="https://peerj.com/preprints/3159v2/">&mdash; Professor Jenny Bryan, UBC</a></cite>
+</footer>
+</blockquote>
+
+* Write a report as normal (e.g. in Word)
+* Use special marks to create headings, bullet points, format text etc
+* [Online cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+<aside class="notes">
+* There are also cheatsheets in Rstudio
+* Have to think about documents differently, but once you have it it's very easy to use
+* Markdown documents are just text, so we can use version control effectively (e.g. `git`)
+</aside>
+
+## Format your document
+
+* Add headers using `#`
+* Try a bullet point list using `*`
+    * Or a numbered list using `1. `
+* Make some text either bold (with `__` ) or italics (with `_` )
+* Use `knitr::kable()` to format table output
+
+<aside class="notes">
+* Note on different level of headings
+* Note on numbered listed
+* Note on sub-lists w/ indentation
+* Note `knitr::kable()`
+* Try these now
+</aside>
+
+## Change the options
+
+The YAML header let's us add document options:
+
+```
+---
+title: "Your title"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+    theme: readable
+---
+```
+
+See them all [online](http://rmarkdown.rstudio.com/html_document_format.html)
+
+<aside class="notes">
+* Make these changes and re-knit
+</aside>
