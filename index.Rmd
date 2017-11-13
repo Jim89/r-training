@@ -2,11 +2,9 @@
 title: "An Introduction to R"
 author: "Jim Leach"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Introduction to R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: 
+  rmarkdown::html_document:
+      theme: readable
 ---
 
 This page contains links to some introductory presentations on R. The
@@ -18,7 +16,20 @@ hosted
 
 ## Sections
 
-1. [Introduction](./00-an-introduction-to-r.html)
-2. [Plotting with ggplot2](./01-plotting-with-ggplot2.html)
-3. [Manipulating data with R](./02-working-with-data.html)
-5. [Creating reports with R](./03-reports-with-r.html)
+```{r echo = FALSE, results = "asis"}
+library(magrittr)
+html <- dir(".", pattern = "[0-9].*.html")
+links <- paste0("./", html)
+labels <- html %>% 
+  stringr::str_replace_all("[0-9]|.html", "") %>% 
+  stringr::str_replace_all("-", " ") %>% 
+  stringr::str_trim() %>% 
+  stringr::str_to_title() %>% 
+  stringr::str_replace_all("Ggplot", "ggplot")
+
+
+cat(
+  paste0("1. [", labels, "](", links, ")\n")
+)
+```
+
