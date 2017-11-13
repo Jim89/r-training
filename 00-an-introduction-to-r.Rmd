@@ -41,7 +41,7 @@ To help me get an understanding of your level who has:
 * Powerful
 
 <aside class="notes">
-* Reads data in to RAM - fast
+* Reads data in to RAM - faster than on disk
 * Can flexibly talk to data in databases - convenient
 * Can read most/all data
 * Built in/packaged functionality for pretty much any type of data analysis/science
@@ -77,6 +77,7 @@ knitr::include_graphics("./www/rstudio.png")
     * Files/plots/packages/help - File browser, plot outputs, documentation
 * Projects - create one
     * Associated a bunch of code/data with a directory for ease of use
+* Help > Cheatsheets    
 </aside>
 
 ## The `tidyverse`
@@ -99,12 +100,27 @@ install.packages("tidyverse") # Install the package
 library(tidyverse) # Load the package
 ```
 
+<aside class="notes">
+* Note - uses the internet
+* Other options for installing in internet-less environment (ask me after)
+* Open Rstudio
+* Type the install commands in to the console - problems?
+* May fail on restricted systems (e.g. w/o admin rights)
+* May ask to put packages in local folder
+</aside>
+
 ## The `tidyverse`
 
 ```{r}
 library(tidyverse)
 tidyverse_logo()
 ```
+
+<aside class="notes">
+* Can you run `library()`
+* And `tidyverse_logo()`?
+* All good?
+</aside>
 
 ## Functions
 
@@ -145,6 +161,7 @@ the_average
 * Can also use `=`, but `<-` is preferred style (and `=` used inside function calls)
 * Assign the name x the value 4
 * Can save anything to a variable, individual values, lists, data.frames (tables), statistical models
+* Can you do this in the console?
 </aside>
 
 ## Viewing saved objects
@@ -160,6 +177,7 @@ str(mtcars) # str displays the structure of an R object!
 <aside class="notes">
 * The RStudio Environment is also very helpful to see the objects we have saved
 * Remove objects with `rm()` (or just overwrite them)
+* Can you do this in the console?
 </aside>
 
 ## Getting help
@@ -171,8 +189,6 @@ str(mtcars) # str displays the structure of an R object!
 * `#rstats` on [twitter](https://twitter.com/search?q=%23rstats)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
 * [Jim](mailto:jim.leach@kpmg.co.uk)
-
-
 
 
 
