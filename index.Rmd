@@ -12,7 +12,7 @@ hosted
 ## Sections
 
 ```{r echo = FALSE, results = "asis"}
-library(magrittr)
+suppressPackageStartupMessages(library(magrittr))
 html <- dir(".", pattern = "[0-9].*.html")
 links <- paste0("./", html)
 labels <- html %>% 
