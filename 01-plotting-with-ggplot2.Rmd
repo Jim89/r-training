@@ -344,3 +344,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 * Data Visualisation with ggplot2 online course. [Link](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1)
 * R Graphics Cookbook. [Link](https://www.amazon.com/dp/1449316956/ref=as_li_ss_tl?&linkCode=sl1&tag=ggplot2-20&linkId=4daa45d4fbd0a187163a6ff9d56d986e)
 * ggplot2: Elegant graphics for data analysis 2nd ed. (Wickham, 2016). [Link](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=ggplot2-20&linkId=4b4de5146fdafd09b8035e8aa656f300)
+
+## Next
+
+[Working with data](./02-working-with-data.html)

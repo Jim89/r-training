@@ -370,6 +370,9 @@ write_xlsx(my_data, "./path/to/file.xlsx")
 * [`tidyverse`](tidyverse.org) website
 * [R for Data Science](http://r4ds.had.co.nz/)
 * Rstudio [community](https://community.rstudio.com/)
-* `#rstats` on [twitter](https://twitter.com/search?q=%23rstats)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
 * [Jim](mailto:jim.leach@kpmg.co.uk)
+
+## Next
+
+[Creating reports](./03-reports-with-r.html)

@@ -190,5 +190,9 @@ str(mtcars) # str displays the structure of an R object!
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
 * [Jim](mailto:jim.leach@kpmg.co.uk)
 
+## Next
+
+[Data visualisation with `ggplot2`](./01-plotting-with-ggplot2.html)
+
 
 
