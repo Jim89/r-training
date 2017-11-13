@@ -230,3 +230,12 @@ See them all [online](http://rmarkdown.rstudio.com/html_document_format.html)
 <aside class="notes">
 * Make these changes and re-knit
 </aside>
+
+## Getting help
+
+* [Online documentation](http://rmarkdown.rstudio.com/lesson-1.html)
+* [Rstudio community](community.rstudio.com)
+
+## Next
+
+[Wrap up](./99-summary.html)
