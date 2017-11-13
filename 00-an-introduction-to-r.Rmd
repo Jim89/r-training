@@ -8,6 +8,19 @@ output:
     self_contained: false
 ---
 
+## Today's topics
+
+* An introduction to R and the `tidyverse`;
+* Plotting with `ggplot2`
+* Data manipulation with `dplyr`
+* Reading and writing data with `readr` and `readxl`
+* Creating outputs with Rmarkdown
+
+<aside class="notes">
+* Please ask questions
+* Do you have R and Rstudio installed?
+</aside>
+
 ## Who am I?
 
 * Started at KPMG in 2012
@@ -178,6 +191,8 @@ str(mtcars) # str displays the structure of an R object!
 * Can you do this in the console?
 </aside>
 
+# Summary
+
 ## Getting help
 
 * `?function` - R documentation
@@ -187,6 +202,27 @@ str(mtcars) # str displays the structure of an R object!
 * `#rstats` on [twitter](https://twitter.com/search?q=%23rstats)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/r) 
 * [Jim](mailto:jim.leach@kpmg.co.uk)
+
+## How to ask for help
+                 
+Remember to:
+             
+1. Be explicit - state your problem in detail.
+2. Describe the goal of your analysis - not the programming steps you're taking.
+3. Provide reproducible examples - use [`reprex`](https://www.tidyverse.org/help/)
+
+## More R-esources
+
+There are loads of great sources of R information out there. Here are just a few:
+
+* [The materials for these packs](https://hdp-service.uk.kworld.kpmg.com/stash/projects/JL/repos/r-training/browse)
+* [R for Data Science](http://r4ds.had.co.nz/)
+* [Rstudio](https://www.rstudio.com/online-learning/)
+* [DataCamp](https://www.datacamp.com/courses/introduction-to-the-tidyverse)
+* [Coursera](https://www.coursera.org/specialization/jhudatascience/)
+* [CRAN](http://cran.r-project.org/doc/manuals/R-intro.pdf)
+* [Advanced R](http://adv-r.had.co.nz/)
+* [R-Bloggers](http://www.r-bloggers.com/)
 
 ## Next
 
