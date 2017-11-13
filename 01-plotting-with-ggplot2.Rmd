@@ -45,7 +45,7 @@ There are three basic elements of a plot:
 1. Data: used to make the plot. Typically rows and columns (but not always)
 2. Geoms: the visual, geometric objects that are used to represent the data
 3. Coordinate system: onto which we place the geoms
-    * Typically cartesian for us (XY plane) but could be something more complex
+    * Typically Cartesian for us (XY plane) but could be something more complex
 </aside>
 
 ## Displaying data
@@ -92,8 +92,6 @@ library(ggplot2) # Or library(tidyverse) for the other packages, too
 * Impressive given there are now over 10k packages on CRAN
 * Code is how to load the package in R
 </aside>
-
-## What is `ggplot2`
 
 ## Diamonds
 
@@ -149,13 +147,13 @@ ggplot(diamonds, aes(x = carat, y = price, colour = clarity))
 
 * Used to specify _data_ and _mappings_.
 
-<div class="notes">\
+<aside class="notes">
 * Open a _Script_ (File > New > Script, or CTRL+SHIFT+N)
 * _Scripts_ are just text files with `.R` extension that let us save our commands easily
 * Make the plot yourself!
 * What this makes
 * Sensible defaults for gridlines, labels etc
-</div>
+</aside>
 
 ## Starting out - ggplot()
 

@@ -60,10 +60,9 @@ storms
 ```
 
 <aside class="notes">
-* Built in data set that comes with `ggplot2`
-* Contains the prices and other attributes of almost 54,000 diamonds. 
-* Diamond characteristics and prices
-* Type `?diamonds` at the console to get more details
+* Built in data set that comes with `dplyr`
+* Contains details of several tropical storms
+* Type `?storms` at the console to get more details
 </aside>
 
 ## `select()`
@@ -77,6 +76,7 @@ select(storms, name, year, month, day, status)
 * Lots of helper functions, e.g. `starts_with()`, `ends_with()`, see `?select_helpers`
 
 <aside class="notes">
+* First argument - the data we want to select from
 * Remember `?function`
 * To drop columns use `-`
 * Can use numeric positions of the columns - start from 1 on the left
@@ -86,7 +86,7 @@ select(storms, name, year, month, day, status)
 
 ## `filter()`
 
-Selects rows based on (a) condition(s).
+Picks rows based on (a) condition(s).
 
 ```{r filter_eg}
 filter(storms, status == "hurricane")
@@ -95,6 +95,7 @@ filter(storms, status == "hurricane")
 * Criteria: `==` , `>`, `>=`, `!=` (not equal to), `between()`
 
 <aside class="notes">
+* First argument - the data we want to filter
 * Multiple _and_ criteria can be separated with `&` or `,`
 * Multiple _or_ (careful!) separated with `|`
 * Use `!` for not
@@ -122,6 +123,7 @@ mutate(
 * Lots of useful functions can be used: `case_when()`, `lead()`/`lag()`, `coalesce()`
 
 <aside class="notes">
+* First argument - the data we want to use to generate new cols
 * The other columns are hidden in the output above
 * Add multiple columns using `,`, even using columns you have just created!
 * `mutate()` will _keep_ all the other variables, too

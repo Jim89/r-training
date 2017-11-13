@@ -14,7 +14,7 @@ output:
 * Early career as a data analyst
 * Self study, then MSc Data Science
 * Transferred to data scientist post-MSc
-* 5 years using and teaching R
+* `r as.numeric(ceiling(difftime(Sys.Date(), as.Date("2013-01-01"), units = "days")/365))` years using and teaching R
 
 ## Materials
 
@@ -65,7 +65,7 @@ knitr::include_graphics("./www/lang-growth-med.png")
 A powerful [IDE](http://www.rstudio.com/) for R. 
 
 ```{r rstudio, echo = FALSE}
-knitr::include_graphics("./www/rstudio.png")
+knitr::include_graphics("./www/rstudio-med.png")
 ```
 
 <aside class="notes">
@@ -113,6 +113,10 @@ library(tidyverse) # Load the package
 
 ```{r}
 library(tidyverse)
+```
+
+
+```{r}
 tidyverse_logo()
 ```
 
@@ -124,16 +128,10 @@ tidyverse_logo()
 
 ## Functions
 
-* Operations performed by R e.g. `library()`, or `mean()`
-
-<br>
-
-* Have _arguments_ - how they are used.
-
-<br>
-
-* Get help using `?function_name` in the console, e.g. `?library`, `?mean`
-* Or in RStudio highlight function and press F1
+> - Operations performed by R e.g. `library()`, or `mean()`
+> - Have _arguments_ - how they are used.
+> - Get help using `?function_name` in the console, e.g. `?library`, `?mean`
+> - Or in RStudio highlight function and press F1
 
 <aside class="notes">
 * Arguments are _named_, or R just assumes by position

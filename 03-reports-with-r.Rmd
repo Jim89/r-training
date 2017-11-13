@@ -101,7 +101,7 @@ The output should appear beneath the code chunk
 
 ## Preview the output
 
-* Use the Preview button (or Cntrl/Cmd + Shift + K) to convert to the notebook output.
+* Use the Preview button (or Ctrl/Cmd + Shift + K) to convert to the notebook output.
 
 * (You'll need to save the file somewhere first).
 
@@ -110,7 +110,7 @@ The output should appear beneath the code chunk
 ## Sharing a notebook
 
 * Send the `.nb.html` file
-* This will contain you code, comments, and ouputs
+* This will contain you code, comments, and outputs
 * And lets the user get the source file
 
 <aside class="notes">
@@ -148,7 +148,7 @@ The output should appear beneath the code chunk
 
 ## Getting started
 
-Convert you existing notebook with the YAML header:
+Convert your existing notebook with the YAML header:
 
 ```
 ---
@@ -157,7 +157,8 @@ output: html_document
 ---
 ```
 
-Start with the HTML document [format](http://rmarkdown.rstudio.com/html_document_format.html)
+* We'll start with the HTML document [format](http://rmarkdown.rstudio.com/html_document_format.html)
+* Can also do File > New > R Markdown... to create a fresh report
 
 <aside class="notes">
 * Try changing your notebook and saving - you should see 'Preview' change to 'Knit'
@@ -229,6 +230,22 @@ See them all [online](http://rmarkdown.rstudio.com/html_document_format.html)
 
 <aside class="notes">
 * Make these changes and re-knit
+* Try knitting to Word
+</aside>
+
+## Why Rmarkdown
+
+* Gateway to getting started with R
+* Reproducible analysis
+* Wealth of formatting options
+
+<aside class="notes">
+* There are many excellent output formats to choose from
+    * HTML, word, dashboards, websites
+    * This set of presentations
+* Getting comfortable with markdown is an excellent way to improve your writing, as you don't worry so much about dealing with formatting
+* Web-ready
+* Excellent way to start using bits of R day-to-day
 </aside>
 
 ## Getting help
