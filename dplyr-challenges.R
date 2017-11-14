@@ -7,6 +7,8 @@ select(starwars, contains("color"))
 # * Which character is the heaviest?
 arrange(starwars, desc(mass))
 
+filter(starwars, mass == max(mass, na.rm = TRUE))
+
 # * How many Droids are there?
 filter(starwars, species == "Droid")
 
