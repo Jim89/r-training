@@ -114,7 +114,7 @@ knitr::kable(head(diamonds))
 
 What is the relationship between carat and price for diamonds of different clarities?
 
-```{r ggplot2-eg, echo = FALSE, fig.height=4, fig.width=10, message = FALSE}
+```{r ggplot2-eg, echo = FALSE, fig.height=4, fig.width=10, message = FALSE, cache = TRUE}
 ggplot(diamonds, aes(carat, price, colour = clarity)) +
   geom_point(alpha = .015) + 
   geom_smooth() +
@@ -188,7 +188,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 
 ## Adding different layers
 
-```{r base-plus-smooth, echo = T, fig.align='center', fig.width=10, fig.height=4, message = FALSE, warning = FALSE}
+```{r base-plus-smooth, echo = T, fig.align='center', fig.width=10, fig.height=4, message = FALSE, warning = FALSE, cache = TRUE}
 ggplot(diamonds, aes(carat, price, colour = clarity)) +
   geom_smooth()
 ```
@@ -221,7 +221,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 
 ## Scales to control mappings
 
-```{r base-facets-scales, echo = T, fig.align='center', fig.width=10, fig.height=4, message = FALSE}
+```{r base-facets-scales, echo = T, fig.align='center', fig.width=10, fig.height=4, message = FALSE, cache = TRUE}
 ggplot(diamonds, aes(carat, price, colour = clarity)) +
   geom_point(alpha = .015) + geom_smooth() +
   scale_y_continuous(labels = scales::comma)
@@ -264,7 +264,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 
 ## Finished plot
 
-```{r ggplot_eval, eval = T, echo = F, fig.height=5, fig.width=10, message = FALSE}
+```{r ggplot_eval, eval = T, echo = F, fig.height=5, fig.width=10, message = FALSE, cache = TRUE}
 ggplot(diamonds, aes(carat, price, colour = clarity)) +
   geom_point(alpha = .015) + 
   geom_smooth() +
@@ -297,7 +297,7 @@ ggplot(diamonds, aes(carat, price, colour = clarity)) +
 
 ## Finished plot with KPMG themes
 
-```{r ggplot_show_kpmg, eval = T, echo = F, fig.height=5, fig.width=10, message = FALSE}
+```{r ggplot_show_kpmg, eval = T, echo = F, fig.height=5, fig.width=10, message = FALSE, cache = TRUE}
 library(ggkpmg)
 
 ggplot(diamonds, aes(carat, price, colour = clarity)) +

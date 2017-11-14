@@ -293,6 +293,31 @@ read_excel(readxl_example("clippy.xls"))
 * We can specify the sheet to read from with `sheet`, and a cell range with `range` arguments
 </aside>
 
+## Aside - working directory
+
+R uses a _working directory_ when looking for files
+
+```{r}
+getwd()
+```
+
+```{r eval = FALSE}
+setwd("/path/to/new/directory")
+```
+
+<aside class="notes">
+* A working directory is where R is "pointing to"
+* It is a folder on your system (or a remote drive) that R looks for files/data in (if you don't specificy a path)
+* Find the current directory with `getwd()`
+* Set a new one with `setwd()`
+* Require basic understanding of file paths - 
+    * `.` = here
+    * `..` = up
+    * `/` = down
+* Create an RStudio project to associate project with a directory - gives us default working directory    
+</aside>
+
+
 ## Writing to text file
 
 Use the helpful `write_` functions in `readr`
@@ -310,6 +335,7 @@ write_delim(my_data, "./path/to/file.txt", delim = "\")
     * Well-known
     * Non-proprietary
     * Lightweight
+* Try writing some data (e.g. `storms` to a CSV)    
 </aside>
 
 ## Writing to Excel
