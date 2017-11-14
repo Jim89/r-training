@@ -40,3 +40,6 @@ ggplot(starwars, aes(homeworld)) +
 ggplot(starwars, aes(eye_color, height, fill = eye_color)) +
   geom_boxplot()
 
+ggplot(starwars, aes(eye_color, height, fill = eye_color)) +
+  geom_violin()
+
