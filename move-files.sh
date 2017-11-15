@@ -8,4 +8,4 @@ fi
 user="$1"
 
 # scp the files to the shiny server - should be the HTML files and supporting _files, _cache and www directories
-scp -r _site/* ${user}@ukixeapp208.uk.kworld.kpmg.com:/srv/shiny-server/r-training
+scp -r _site/* ${user}@ukixeapp208.uk.kworld.kpmg.com:/srv/shiny-server/training/r-training
